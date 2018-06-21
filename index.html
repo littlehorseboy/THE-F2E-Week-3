@@ -16,7 +16,7 @@
 
 <body>
     <div id="app">
-        <div class="container">
+        <div class="container-fluid px-0">
             <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
                 <a class="navbar-brand text-white">Shoptime</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -45,7 +45,7 @@
                 </div>
             </nav>
         </div>
-        <div class="container">
+        <div class="container-fluid px-0">
             <router-view></router-view>
         </div>
     </div>
@@ -54,11 +54,86 @@
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.4/lodash.min.js"></script>
     <script src="src/lib/bootstrap v4.1.1/js/jquery.min.js"></script>
     <script src="src/lib/bootstrap v4.1.1/js/bootstrap.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
     <!-- <script src="https://npmcdn.com/flatpickr@4.5.0/dist/flatpickr.min.js"></script> -->
     <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <script type="text/x-template" id="Home">
-        <div>bbb</div>
+        <div class="bg-grey pb-5">
+            <div class="row px-4 py-4">
+                <div class="col-md-8">
+                    <h4>OVERVIEW</h4>
+                </div>
+                <div class="col-md-4 text-right pt-2">
+                    <span class="text-black-50 mr-1">2018/6/6</span>
+                    <i class="fas fa-caret-right mx-1"></i>
+                    <span class="text-black-50">2018/6/13</span>
+                    <select class="form-control d-inline-block w-auto">
+                        <option>Daily</option>
+                        <option>Weekly</option>
+                        <option>Monthly</option>
+                        <option>Yearly</option>
+                        <option>Custom</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row px-4 mb-4">
+                <div class="col-md-4">
+                    <div class="bg-white block text-center py-4">
+                        <div class="h4">TOTAL REVENUE</div>
+                        <div>54,540</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="bg-white block text-center py-4">
+                        <div class="h4">TOTAL COST</div>
+                        <div>12,660</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="bg-white block text-center py-4">
+                        <div class="h4">NET INCOME</div>
+                        <div>41,880</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row px-4 mb-4">
+                <div class="col-md-12">
+                    <div class="bg-white block px-4 py-4">
+                        <div class="h4">Activity</div>
+                        <div class="chart-container">
+                            <canvas id="myChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row px-4">
+                <div class="col-md-6">
+                    <div class="bg-white block px-4 py-4">
+                        <div class="h4">Transaction Website</div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item px-0 border-top-0">Cras justo odio</li>
+                            <li class="list-group-item px-0">Dapibus ac facilisis in</li>
+                            <li class="list-group-item px-0">Morbi leo risus</li>
+                            <li class="list-group-item px-0">Porta ac consectetur ac</li>
+                            <li class="list-group-item px-0">Vestibulum at eros</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="bg-white block px-4 py-4">
+                        <div class="h4">Latest Orders</div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item px-0 border-top-0">Cras justo odio</li>
+                            <li class="list-group-item px-0">Dapibus ac facilisis in</li>
+                            <li class="list-group-item px-0">Morbi leo risus</li>
+                            <li class="list-group-item px-0">Porta ac consectetur ac</li>
+                            <li class="list-group-item px-0">Vestibulum at eros</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </script>
     <script type="text/babel" src="src/js/index.js"></script>
 </body>
