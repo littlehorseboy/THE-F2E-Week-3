@@ -8,43 +8,64 @@ const Home = Vue.component('Home', {
   mounted() {
     var ctx = document.getElementById('myChart').getContext('2d');
     var chart = new Chart(ctx, {
-      // The type of chart we want to create
       type: 'line',
-      // The data for our dataset
       data: {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [{
-          label: 'My First dataset',
-          backgroundColor: 'rgb(255, 99, 132)',
-          borderColor: 'rgb(255, 99, 132)',
-          data: [0, 10, 5, 2, 20, 30, 45],
-        }]
+        datasets: [
+          {
+            label: 'Revenue',
+            backgroundColor: '#7ED321',
+            borderColor: '#7ED321',
+            data: [0, 10, 5, 2, 20, 30, 50],
+            fill: false,
+            lineTension: 0,
+          },
+          {
+            label: 'Cost',
+            backgroundColor: '#D0021B',
+            borderColor: '#D0021B',
+            data: [0, 10, 15, 5, 20, 30, 50],
+            fill: false,
+            lineTension: 0,
+          },
+          {
+            label: 'Income',
+            backgroundColor: '#4A90E2',
+            borderColor: '#4A90E2',
+            data: [0, 10, 5, 2, 30, 30, 50],
+            fill: false,
+            lineTension: 0,
+          },
+        ],
       },
       // Configuration options go here
-      options: {}
+      options: {},
     });
   },
 });
 
-const Foo = {
-  template: '<div>foo</div>',
+const Orders = {
+  template: '#Orders',
 };
-const Bar = {
-  template: '<div>bar</div>',
+const Product = {
+  template: '#Product',
 };
 
 const routes = [
   {
     path: '/',
+    name: 'home',
     component: Home,
   },
   {
-    path: '/foo',
-    component: Foo,
+    path: '/orders',
+    name: 'orders',
+    component: Orders,
   },
   {
-    path: '/bar',
-    component: Bar,
+    path: '/product',
+    name: 'product',
+    component: Product,
   },
 ];
 

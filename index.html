@@ -28,13 +28,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <router-link to="/" class="nav-link">HOME</router-link>
+                            <router-link :to="{ name: 'home' }" class="nav-link">HOME</router-link>
                         </li>
                         <li class="nav-item">
-                            <router-link to="/foo" class="nav-link">ORDERS</router-link>
+                            <router-link :to="{ name: 'orders' }" class="nav-link">ORDERS</router-link>
                         </li>
                         <li class="nav-item">
-                            <router-link to="/bar" class="nav-link">PRODUCT</router-link>
+                            <router-link :to="{ name: 'product' }" class="nav-link">PRODUCT</router-link>
                         </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0 text-white">
@@ -131,6 +131,181 @@
                             <li class="list-group-item px-0">Vestibulum at eros</li>
                         </ul>
                     </div>
+                </div>
+            </div>
+        </div>
+    </script>
+    <script type="text/x-template" id="Orders">
+        <div class="bg-grey pb-5">
+            <div class="row px-4 py-4">
+                <div class="col-md-8 pt-2">
+                    <!-- bootstrap custom-checkbox 搞不清楚怎麼用空的 label -->
+                    <input type="checkbox">
+                    <i class="fas fa-caret-down"></i>
+                    <i class="fas fa-tags"></i>
+                </div>
+                <div class="col-md-4 text-right pt-2">
+                    <select class="form-control d-inline-block w-auto">
+                        <option>Daily</option>
+                        <option>Weekly</option>
+                        <option>Monthly</option>
+                        <option>Yearly</option>
+                        <option>Custom</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row px-4 mb-4">
+                <div class="col-md-12">
+                    <table></table>
+                </div>
+            </div>
+            <div class="row px-4 mb-4">
+                <div class="col-md-12">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">Handle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row px-4">
+                <div class="col-md-12">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">1</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">2</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">3</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </script>
+    <script type="text/x-template" id="Product">
+        <div class="bg-grey pb-5">
+            <div class="row px-4 py-4">
+                <div class="col-md-8 pt-2">
+                    <!-- bootstrap custom-checkbox 搞不清楚怎麼用空的 label -->
+                    <input type="checkbox">
+                    <i class="fas fa-caret-down"></i>
+                    <i class="fas fa-tags"></i>
+                </div>
+                <div class="col-md-4 text-right pt-2">
+                    <button class="btn btn-primary">
+                        ADD NEW PRODUCT
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="row px-4 mb-4">
+                <div class="col-md-12">
+                    <table></table>
+                </div>
+            </div>
+            <div class="row px-4 mb-4">
+                <div class="col-md-12">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">Handle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row px-4">
+                <div class="col-md-12">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">1</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">2</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">3</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
