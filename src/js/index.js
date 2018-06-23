@@ -46,9 +46,20 @@ const Home = Vue.component('Home', {
 
 const Orders = {
   template: '#Orders',
+  computed: {
+    orders() {
+      return this.$store.getters.getOrders;
+    },
+  },
 };
+
 const Product = {
   template: '#Product',
+  computed: {
+    products() {
+      return this.$store.getters.getProducts;
+    },
+  },
 };
 
 const routes = [
@@ -76,4 +87,5 @@ const router = new VueRouter({
 const app = new Vue({
   el: '#app',
   router,
+  store,
 });

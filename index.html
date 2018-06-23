@@ -17,8 +17,8 @@
 <body>
     <div id="app">
         <div class="container-fluid px-0">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-                <a class="navbar-brand text-white">Shoptime</a>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary py-0">
+                <a class="h4 text-white py-3 pl-2 pr-5 mb-0">Shoptime</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -28,19 +28,19 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <router-link :to="{ name: 'home' }" class="nav-link">HOME</router-link>
+                            <router-link :to="{ name: 'home' }" class="nav-link font-weight-bold">HOME</router-link>
                         </li>
                         <li class="nav-item">
-                            <router-link :to="{ name: 'orders' }" class="nav-link">ORDERS</router-link>
+                            <router-link :to="{ name: 'orders' }" class="nav-link font-weight-bold">ORDERS</router-link>
                         </li>
                         <li class="nav-item">
-                            <router-link :to="{ name: 'product' }" class="nav-link">PRODUCT</router-link>
+                            <router-link :to="{ name: 'product' }" class="nav-link font-weight-bold">PRODUCT</router-link>
                         </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0 text-white">
                         <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
                         <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
-                        ADMIN
+                        <span class=" font-weight-bold">ADMIN</span>
                     </form>
                 </div>
             </nav>
@@ -57,6 +57,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
     <!-- <script src="https://npmcdn.com/flatpickr@4.5.0/dist/flatpickr.min.js"></script> -->
     <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+    <script src="https://unpkg.com/vuex@3.0.1/dist/vuex.js"></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <script type="text/x-template" id="Home">
         <div class="bg-grey pb-5">
@@ -161,33 +162,30 @@
             </div>
             <div class="row px-4 mb-4">
                 <div class="col-md-12">
-                    <table class="table">
+                    <table v-if="orders.length > 0" class="table">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
+                                <th v-for="(value, key) in orders[0]" scope="col">
+                                    {{ key }}
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
+                            <tr v-for="(order, index) in orders">
+                                <th scope="row">{{ order.id }}</th>
+                                <td>{{ order.customer }}</td>
+                                <td>
+                                    <div v-for="(product, index) in order.productList">
+                                        <div>{{ product.name }}</div>
+                                        <span>{{ product.price }}</span>
+                                        <span>{{ product.quantity }}</span>
+                                    </div>
+                                </td>
+                                <td>{{ order.total }}</td>
+                                <td>{{ order.addToCart }}</td>
+                                <td>{{ order.checkout }}</td>
+                                <td>{{ order.address }}</td>
+                                <td>{{ order.status }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -247,33 +245,45 @@
             </div>
             <div class="row px-4 mb-4">
                 <div class="col-md-12">
-                    <table class="table">
+                    <table v-if="products.length > 0" class="table">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
+                                <template v-for="(product, pkey) in products[0]">
+                                    <template v-if="pkey === 'details'">
+                                        <template v-for="(detail, dkey) in product[0]">
+                                            <th scope="col">
+                                                {{ dkey }}
+                                            </th>
+                                        </template>
+                                    </template>
+                                    <th v-else scope="col">
+                                        {{ pkey }}
+                                    </th>
+                                </template>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
+                            <tr v-for="(product, index) in products">
+                                <th scope="row">{{ product.id }}</th>
+                                <td>{{ product.name }}</td>
+                                <td>{{ product.picture }}</td>
+                                <td>{{ product.original }}</td>
+                                <td>{{ product.discount }}</td>
+                                <td>
+                                    <template v-for="(detail, index) in product.details">
+                                        <div>{{ detail.size }}</div>
+                                    </template>
+                                </td>
+                                <td>
+                                    <template v-for="(detail, index) in product.details">
+                                        <div>{{ detail.color }}</div>
+                                    </template>
+                                </td>
+                                <td>
+                                    <template v-for="(detail, index) in product.details">
+                                        <div>{{ detail.inventory }}</div>
+                                    </template>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -310,6 +320,7 @@
             </div>
         </div>
     </script>
+    <script src="src/store/store.js"></script>
     <script type="text/babel" src="src/js/index.js"></script>
 </body>
 
