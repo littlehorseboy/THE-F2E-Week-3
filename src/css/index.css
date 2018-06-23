@@ -10,11 +10,25 @@
   padding-right: 1rem !important;
 }
 
-.bg-grey {
-  background-color: #F2F2F2;
-}
-
 .bg-white.block {
   box-shadow: 0 0 10px 5px #EBEBEB;
   border-radius: 3px;
+}
+
+/**/
+
+.text-green {
+  color: #7ED321;
+}
+
+.text-red {
+  color: #D0021B;
+}
+
+.text-blue {
+  color: #4A90E2;
+}
+
+.bg-grey {
+  background-color: #F2F2F2;
 }
