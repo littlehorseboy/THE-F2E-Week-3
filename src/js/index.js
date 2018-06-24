@@ -11,16 +11,16 @@ const Home = Vue.component('Home', {
     const ctx = document.getElementById('myChart').getContext('2d');
     
     const revenueArray = [0, 0, 0, 0, 0, 0, 0];
-    for (let i = 0; i < 100; i++) {
-      revenueArray[_.random(0, 6)] += 1;
+    for (let i = 0; i < 545; i++) {
+      revenueArray[_.random(0, 6)] += 100;
     }
     const costArray = [0, 0, 0, 0, 0, 0, 0];
-    for (let i = 0; i < 100; i++) {
-      costArray[_.random(0, 6)] += 1;
+    for (let i = 0; i < 126; i++) {
+      costArray[_.random(0, 6)] += 100;
     }
     const incomeArray = [0, 0, 0, 0, 0, 0, 0];
-    for (let i = 0; i < 100; i++) {
-      incomeArray[_.random(0, 6)] += 1;
+    for (let i = 0; i < 418; i++) {
+      incomeArray[_.random(0, 6)] += 100;
     }
     const chart = new Chart(ctx, {
       type: 'line',
