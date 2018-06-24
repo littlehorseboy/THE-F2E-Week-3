@@ -2,7 +2,7 @@ const store = new Vuex.Store({
   state: {
     orders: [
       {
-        id: 1,
+        id: faker.random.uuid(),
         customer: 'A先生',
         productList: [
           {
@@ -18,7 +18,7 @@ const store = new Vuex.Store({
         status: 0,
       },
       {
-        id: 2,
+        id: faker.random.uuid(),
         customer: 'A先生',
         productList: [
           {
@@ -36,7 +36,7 @@ const store = new Vuex.Store({
     ],
     products: [
       {
-        id: 1,
+        id: faker.random.uuid(),
         name: '樸素大衣',
         picture: '',
         original: 13,
@@ -75,7 +75,7 @@ const store = new Vuex.Store({
         ],
       },
       {
-        id: 2,
+        id: faker.random.uuid(),
         name: '樸素大衣',
         picture: '',
         original: 13,

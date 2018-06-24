@@ -1,3 +1,5 @@
+Object.defineProperty(Vue.prototype, '$faker', { value: faker });
+
 const Home = Vue.component('Home', {
   template: '#Home',
   data() {
@@ -6,8 +8,21 @@ const Home = Vue.component('Home', {
     };
   },
   mounted() {
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var chart = new Chart(ctx, {
+    const ctx = document.getElementById('myChart').getContext('2d');
+    
+    const revenueArray = [0, 0, 0, 0, 0, 0, 0];
+    for (let i = 0; i < 100; i++) {
+      revenueArray[_.random(0, 6)] += 1;
+    }
+    const costArray = [0, 0, 0, 0, 0, 0, 0];
+    for (let i = 0; i < 100; i++) {
+      costArray[_.random(0, 6)] += 1;
+    }
+    const incomeArray = [0, 0, 0, 0, 0, 0, 0];
+    for (let i = 0; i < 100; i++) {
+      incomeArray[_.random(0, 6)] += 1;
+    }
+    const chart = new Chart(ctx, {
       type: 'line',
       data: {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -16,7 +31,7 @@ const Home = Vue.component('Home', {
             label: 'Revenue',
             backgroundColor: '#7ED321',
             borderColor: '#7ED321',
-            data: [0, 10, 5, 2, 20, 30, 50],
+            data: revenueArray,
             fill: false,
             lineTension: 0,
           },
@@ -24,7 +39,7 @@ const Home = Vue.component('Home', {
             label: 'Cost',
             backgroundColor: '#D0021B',
             borderColor: '#D0021B',
-            data: [0, 10, 15, 5, 20, 30, 50],
+            data: costArray,
             fill: false,
             lineTension: 0,
           },
@@ -32,7 +47,7 @@ const Home = Vue.component('Home', {
             label: 'Income',
             backgroundColor: '#4A90E2',
             borderColor: '#4A90E2',
-            data: [0, 10, 5, 2, 30, 30, 50],
+            data: incomeArray,
             fill: false,
             lineTension: 0,
           },

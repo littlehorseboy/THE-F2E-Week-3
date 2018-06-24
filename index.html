@@ -55,6 +55,7 @@
     <script src="src/lib/bootstrap v4.1.1/js/jquery.min.js"></script>
     <script src="src/lib/bootstrap v4.1.1/js/bootstrap.bundle.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js"></script>
     <!-- <script src="https://npmcdn.com/flatpickr@4.5.0/dist/flatpickr.min.js"></script> -->
     <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
     <script src="https://unpkg.com/vuex@3.0.1/dist/vuex.js"></script>
@@ -72,7 +73,7 @@
                     <select class="form-control d-inline-block w-auto">
                         <option>Daily</option>
                         <option>Weekly</option>
-                        <option>Monthly</option>
+                        <option selected>Monthly</option>
                         <option>Yearly</option>
                         <option>Custom</option>
                     </select>
@@ -112,7 +113,7 @@
                     <div class="bg-white block px-4 py-4">
                         <div class="h4">Activity</div>
                         <div class="chart-container">
-                            <canvas id="myChart"></canvas>
+                            <canvas id="myChart" height="100"></canvas>
                         </div>
                     </div>
                 </div>
@@ -123,54 +124,54 @@
                         <div class="h4">Transaction Website</div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item px-0 border-top-0">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <i class="fab fa-facebook"></i>
-                                        <span>Facebook.com</span>
+                                <div class="row py-2">
+                                    <div class="col-sm-6 d-flex align-items-center">
+                                        <i class="fab fa-facebook display-4 mr-4"></i>
+                                        <span class="text-muted">Facebook.com</span>
                                     </div>
                                     <div class="col-sm-6 text-sm-right">
-                                        <span>45,836</span>
-                                        <i class="fas fa-arrow-up"></i>
-                                        <span>20%</span>
+                                        <span class="h5 mr-3">45,836</span>
+                                        <i class="fas fa-arrow-up text-green"></i>
+                                        <span class="text-green">20%</span>
                                     </div>
                                 </div>
                             </li>
                             <li class="list-group-item px-0">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <i class="fab fa-facebook"></i>
-                                        <span>Facebook.com</span>
+                                <div class="row py-2">
+                                    <div class="col-sm-6 d-flex align-items-center">
+                                        <i class="fab fa-google display-4 mr-4"></i>
+                                        <span class="text-muted">google.com</span>
                                     </div>
                                     <div class="col-sm-6 text-sm-right">
-                                        <span>45,836</span>
-                                        <i class="fas fa-arrow-up"></i>
-                                        <span>20%</span>
+                                        <span class="h5 mr-3">23,582</span>
+                                        <i class="fas fa-arrow-up text-green"></i>
+                                        <span class="text-green">12%</span>
                                     </div>
                                 </div>
                             </li>
                             <li class="list-group-item px-0">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <i class="fab fa-facebook"></i>
-                                        <span>Facebook.com</span>
+                                <div class="row py-2">
+                                    <div class="col-sm-6 d-flex align-items-center">
+                                        <i class="fas fa-shopping-bag display-4 mr-4"></i>
+                                        <span class="text-muted">Shopify.com</span>
                                     </div>
                                     <div class="col-sm-6 text-sm-right">
-                                        <span>45,836</span>
-                                        <i class="fas fa-arrow-up"></i>
-                                        <span>20%</span>
+                                        <span class="h5 mr-3">2,489</span>
+                                        <i class="fas fa-arrow-down text-red"></i>
+                                        <span class="text-red">15%</span>
                                     </div>
                                 </div>
                             </li>
                             <li class="list-group-item px-0">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <i class="fab fa-facebook"></i>
-                                        <span>Facebook.com</span>
+                                <div class="row pt-2">
+                                    <div class="col-sm-6 d-flex align-items-center">
+                                        <i class="fab fa-wordpress display-4 mr-3"></i>
+                                        <span class="text-muted">WordPress.com</span>
                                     </div>
                                     <div class="col-sm-6 text-sm-right">
-                                        <span>45,836</span>
-                                        <i class="fas fa-arrow-up"></i>
-                                        <span>20%</span>
+                                        <span class="h5 mr-3">1,057</span>
+                                        <i class="fas fa-arrow-down text-red"></i>
+                                        <span class="text-red">30%</span>
                                     </div>
                                 </div>
                             </li>
@@ -184,24 +185,24 @@
                             <li class="list-group-item px-0 border-top-0">
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <img alt="100x100" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22200%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1642d7c63f6%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1642d7c63f6%22%3E%3Crect%20width%3D%22200%22%20height%3D%22200%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2274.4296875%22%20y%3D%22104.5%22%3E100x100%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" style="width: 100px; height: 100px;">
+                                        <img alt="100x100" :src="$faker.random.image()" style="width: 100px; height: 100px;">
                                     </div>
                                     <div class="col-sm-9 row">
-                                        <div class="col-sm-12">
+                                        <div class="col-sm-12 h5 font-weight-bold">
                                             Vintage T-shirt
                                         </div>
-                                        <div class="col-sm-8">
+                                        <div class="col-sm-8 text-muted">
                                             <i class="fas fa-clock"></i>
                                             2018/06/13 13:42
                                         </div>
-                                        <div class="col-sm-4 text-sm-right">
+                                        <div class="col-sm-4 text-sm-right font-weight-bold">
                                             Total
                                         </div>
-                                        <div class="col-sm-8">
+                                        <div class="col-sm-8 text-muted">
                                             <i class="fas fa-male"></i>
-                                            Belle Willis
+                                            {{ $faker.name.findName() }}
                                         </div>
-                                        <div class="col-sm-4 text-sm-right">
+                                        <div class="col-sm-4 text-sm-right h5">
                                             3,200
                                         </div>
                                     </div>
@@ -210,24 +211,24 @@
                             <li class="list-group-item px-0">
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <img alt="100x100" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22200%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1642d7c63f6%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1642d7c63f6%22%3E%3Crect%20width%3D%22200%22%20height%3D%22200%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2274.4296875%22%20y%3D%22104.5%22%3E100x100%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" style="width: 100px; height: 100px;">
+                                        <img alt="100x100" :src="$faker.random.image()" style="width: 100px; height: 100px;">
                                     </div>
                                     <div class="col-sm-9 row">
-                                        <div class="col-sm-12">
-                                            Vintage T-shirt
+                                        <div class="col-sm-12 h5 font-weight-bold">
+                                            Cowboy Jacket
                                         </div>
-                                        <div class="col-sm-8">
+                                        <div class="col-sm-8 text-muted">
                                             <i class="fas fa-clock"></i>
-                                            2018/06/13 13:42
+                                            2018/06/13 10:45
                                         </div>
-                                        <div class="col-sm-4 text-sm-right">
+                                        <div class="col-sm-4 text-sm-right font-weight-bold">
                                             Total
                                         </div>
-                                        <div class="col-sm-8">
+                                        <div class="col-sm-8 text-muted">
                                             <i class="fas fa-male"></i>
-                                            Belle Willis
+                                            {{ $faker.name.findName() }}
                                         </div>
-                                        <div class="col-sm-4 text-sm-right">
+                                        <div class="col-sm-4 text-sm-right h5">
                                             3,200
                                         </div>
                                     </div>
@@ -236,25 +237,25 @@
                             <li class="list-group-item px-0">
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <img alt="100x100" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22200%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1642d7c63f6%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1642d7c63f6%22%3E%3Crect%20width%3D%22200%22%20height%3D%22200%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2274.4296875%22%20y%3D%22104.5%22%3E100x100%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" style="width: 100px; height: 100px;">
+                                        <img alt="100x100" :src="$faker.random.image()" style="width: 100px; height: 100px;">
                                     </div>
                                     <div class="col-sm-9 row">
-                                        <div class="col-sm-12">
+                                        <div class="col-sm-12 h5 font-weight-bold">
                                             Vintage T-shirt
                                         </div>
-                                        <div class="col-sm-8">
+                                        <div class="col-sm-8 text-muted">
                                             <i class="fas fa-clock"></i>
-                                            2018/06/13 13:42
+                                            2018/06/13 08:26
                                         </div>
-                                        <div class="col-sm-4 text-sm-right">
+                                        <div class="col-sm-4 text-sm-right font-weight-bold">
                                             Total
                                         </div>
-                                        <div class="col-sm-8">
+                                        <div class="col-sm-8 text-muted">
                                             <i class="fas fa-male"></i>
-                                            Belle Willis
+                                            {{ $faker.name.findName() }}
                                         </div>
-                                        <div class="col-sm-4 text-sm-right">
-                                            3,200
+                                        <div class="col-sm-4 text-sm-right h5">
+                                            1,600
                                         </div>
                                     </div>
                                 </div>
